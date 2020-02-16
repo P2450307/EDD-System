@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EDDTesting
 {
     [TestClass]
-    public class tstStaff
+    public class TstStaff
     {
         [TestMethod]
         public void InstanceOK()
@@ -22,8 +22,8 @@ namespace EDDTesting
         {
             clsStaff Staff = new clsStaff();
 
-           //create test data to assign to property
-            Int32 TestData = 1;
+            //create test data to assign to property
+            int TestData = 1546284;
 
             //assign data to the property
             Staff.StaffID = TestData;
@@ -48,7 +48,7 @@ namespace EDDTesting
         [TestMethod]
         public void DateOfBirthPropertyOK()
         {
-            clasStaff Staff = new clasStaff();
+            clsStaff Staff = new clsStaff();
 
             DateTime TestData = DateTime.Now.Date;
 
