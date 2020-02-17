@@ -56,6 +56,42 @@ namespace EDDTesting
 
             Assert.AreEqual(Staff.DateOfBirth, TestData);
         }
+
+        [TestMethod]
+        public void LoggedInOutPropertyOK()
+        {
+            clsStaff Staff = new clsStaff();
+
+            Boolean TestData = true;
+
+            Staff.LoggedInOut = TestData;
+
+            Assert.AreEqual(Staff.LoggedInOut, TestData);
+        }
+
+        [TestMethod]
+        public void AddressPropertyOK()
+        {
+            clsStaff Staff = new clsStaff();
+
+            string TestData = "1 Regent Road, Leicester, LE4 1EJ";
+
+            Staff.Address = TestData;
+
+            Assert.AreEqual(Staff.Address, TestData);
+        }
+
+        [TestMethod]
+        public void ContactNoPropertyOK()
+        {
+            clsStaff Staff = new clsStaff();
+
+            string TestData = "+44 78235017391";
+
+            Staff.ContactNo = TestData;
+
+            Assert.AreEqual(Staff.ContactNo, TestData);
+        }
         
     }
 }
