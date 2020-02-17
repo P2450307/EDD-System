@@ -11,4 +11,20 @@ public partial class Staff : System.Web.UI.Page
     {
 
     }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void btnOK_Click(object sender, EventArgs e)
+    {
+        
+
+    }
 }
