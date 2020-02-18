@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.645
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "EDDFrontOffice", "EDDFrontOffice\", "{C6E6731D-0D7D-448B-B292-790814AEB652}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -30,6 +30,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDTesting", "EDDTesting\EDDTesting.csproj", "{5F991BD7-7160-4425-811F-ED823CEFBA58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EDDBackOffice", "EDDBackOffice\EDDBackOffice.csproj", "{ED3F195B-E538-452F-AB17-E707EA725DFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E60BC0F-6D0E-41B3-8073-BEBD02555151}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
