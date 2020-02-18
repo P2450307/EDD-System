@@ -4,8 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
-
+using EDDClasess;
+using EDDClasses;
 
 public partial class Staff : System.Web.UI.Page
 {
@@ -26,16 +26,16 @@ public partial class Staff : System.Web.UI.Page
 
     }
 
-    protected void btnOK_Click(object sender, EventArgs e) 
+    
+
+    protected void btnOK_Click(object sender, EventArgs e)
     {
-        //create new instance of clsStaff
-        clsStaff Staff = new clsStaff();
-        //capture StaffID
-        Staff.StaffID = txtStaffID.Text;
-        //store staff in session object
-        Session["Staff"] = Staff;
-        //redirect to viewer page
-        Response.Redirect("StaffViewer.aspx");
+        clsStaff AStaff = new clsStaff();
+
+        AStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
+        
+        Session["AStaff"] = AStaff;
+        Response.Redirect("StaffIDViewer.aspx");
 
     }
 }
