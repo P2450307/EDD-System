@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EDDClasess;
 
 
 public partial class StaffViewer : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff Staff = new clsStaff();
+        EDDClasses.clsStaff Staff = new EDDClasses.clsStaff();
         //get data from session object
-        Staff = (clsStaff)Session["Staff"];
+        Staff = (EDDClasses.clsStaff)Session["Staff"];
         //display the staff ID for this entry
         Response.Write(Staff.StaffID);
     }
