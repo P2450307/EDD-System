@@ -24,7 +24,7 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
 
             //create test data to assign to property
-            int TestData = 1546284;
+            Int32 TestData = 12345;
 
             //assign data to the property
             Staff.StaffID = TestData;
@@ -92,6 +92,41 @@ namespace EDDTesting
             Staff.ContactNo = TestData;
 
             Assert.AreEqual(Staff.ContactNo, TestData);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsStaff Staff = new clsStaff();
+            //boolean variable to store validation
+            Boolean found = false;
+            
+            string FullName = "Joe Bloggs";
+
+            found = Staff.Find(FullName);
+
+            Assert.IsTrue(found);
+        }
+
+        [TestMethod]
+        public void TestStaffIDFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+
+            Boolean found = false;
+
+            Boolean Ok = true;
+
+            Int32 StaffID = 12345;
+
+            found = Staff.Find(StaffID);
+
+            if(Staff.StaffID != 12345)
+            {
+                Ok = false;
+            }
+
+            Assert.IsTrue(Ok);
         }
         
     }

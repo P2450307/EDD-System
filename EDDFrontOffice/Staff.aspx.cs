@@ -13,7 +13,7 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -30,12 +30,18 @@ public partial class Staff : System.Web.UI.Page
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
-        clsStaff AStaff = new clsStaff();
+        clsStaff Staff = new clsStaff();
 
-        AStaff.StaffID = Convert.ToInt32(txtStaffID.Text);
+        //capture all information below
+        Staff.StaffID = Convert.ToInt32(txtStaffID.Text);
+        Staff.FullName = txtFullName.Text;
+        Staff.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
+        Staff.LoggedInOut = Convert.ToBoolean(RadioButton1);
+        Staff.Address = txtAddress.Text;
+        Staff.ContactNo = txtContactNo.Text;
         
-        Session["AStaff"] = AStaff;
-        Response.Redirect("StaffIDViewer.aspx");
+        Session["Staff"] = Staff;
+        Response.Redirect("StaffViewer.aspx");
 
     }
 }

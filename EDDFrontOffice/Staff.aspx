@@ -9,8 +9,8 @@
 <body>
     <form id="form1" runat="server" >
         <div>
-            Staff ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="txtStaffID" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+            Staff ID
+            <asp:TextBox ID="txtStaffID" runat="server" ></asp:TextBox>
         </div>
         <p>
             Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
