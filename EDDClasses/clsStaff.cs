@@ -16,7 +16,19 @@ namespace EDDClasses
                 sStaffID = value;
             }
         }
-        public string FullName { get; set; }
+
+        private string fullName;
+        public string FullName { 
+           
+            get{
+                return FullName;
+            }
+            
+            set {
+                FullName = value;
+            }
+        
+        }
         public DateTime DateOfBirth { get; set; }
         public bool LoggedInOut { get; set; }
         public string Address { get; set; }
@@ -30,9 +42,12 @@ namespace EDDClasses
         public bool Find(int StaffID)
         {
             sStaffID = 12345;
+            fullName = "Joe Bloggs";
 
             return true;
         }
+
+      
     }
 
     
