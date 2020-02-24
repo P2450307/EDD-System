@@ -128,6 +128,25 @@ namespace EDDTesting
 
             Assert.IsTrue(Ok);
         }
+
+        [TestMethod]
+        public void TestFullNameFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+
+            Boolean found = false;
+
+            Boolean Ok = true;
+
+            string FullName = "Joe Bloggs";
+
+            found = Staff.Find(FullName);
+
+            if(Staff.FullName != "Joe Bloggs")
+            {
+                Ok = false;
+            }
+        }
         
     }
 }
