@@ -94,16 +94,17 @@ namespace EDDTesting
             Assert.AreEqual(Staff.ContactNo, TestData);
         }
 
+      
         [TestMethod]
-        public void FindMethodOK()
+        public void FindMethodOk()
         {
             clsStaff Staff = new clsStaff();
-            //boolean variable to store validation
-            Boolean found = false;
-            
-            string FullName = "Joe Bloggs";
 
-            found = Staff.Find(FullName);
+            Boolean found = false;
+
+            Int32 StaffID = 321;
+
+            found = Staff.Find(StaffID);
 
             Assert.IsTrue(found);
         }
@@ -115,38 +116,49 @@ namespace EDDTesting
 
             Boolean found = false;
 
-            Boolean Ok = true;
+            Boolean OK = true;
 
-            Int32 StaffID = 12345;
+            Int32 StaffID = 321;
 
             found = Staff.Find(StaffID);
 
-            if(Staff.StaffID != 12345)
+            if(Staff.StaffID != 321)
             {
-                Ok = false;
+                OK = false;
             }
 
-            Assert.IsTrue(Ok);
+            Assert.IsTrue(OK);
         }
-
+        
         [TestMethod]
         public void TestFullNameFoundOK()
         {
             clsStaff Staff = new clsStaff();
-
             Boolean found = false;
-
-            Boolean Ok = true;
-
-            string FullName = "Joe Bloggs";
-
-            found = Staff.Find(FullName);
-
+            Boolean OK = true;
+            Int32 StaffID = 321;
+            found = Staff.Find(StaffID);
             if(Staff.FullName != "Joe Bloggs")
             {
-                Ok = false;
+                OK = false;
             }
+            Assert.IsTrue(OK);
         }
-        
+
+        [TestMethod]
+        public void TestDOBFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 StaffID = 321;
+            found = Staff.Find(StaffID);
+            if (Staff.DateOfBirth != Convert.ToDateTime("10/01/2020"))
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
