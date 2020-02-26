@@ -160,5 +160,52 @@ namespace EDDTesting
 
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void TestLoggedIOFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 StaffID = 321;
+            found = Staff.Find(StaffID);
+            if(Staff.LoggedInOut != true)
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestAddressFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 StaffID = 321;
+            found = Staff.Find(StaffID);
+            if(Staff.Address != "1b Gateway walk, Leicester, LE3 0VF")
+            {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestContactNoFoundOK()
+        {
+            clsStaff Staff = new clsStaff();
+            Boolean found = false;
+            Boolean OK = true;
+            Int32 StaffID = 321;
+            found = Staff.Find(StaffID);
+            if(Staff.ContactNo != "+44 07836543291") {
+                OK = false;
+            }
+
+            Assert.IsTrue(OK);
+        }
     }
 }
