@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDDClasess;
+using System;
 
 namespace EDDClasses
 {
@@ -89,13 +90,42 @@ namespace EDDClasses
 
         public bool Find(int StaffID)
         {
-            sStaffID = 321;
-            fName = "Joe Bloggs";
-            DOB = Convert.ToDateTime("10/01/2020");
-            LoggedIO = true;
-            address = "1b Gateway Walk, Leicester, LE3 0VF";
-            contactNo = "+44 07836543291";
-            return true;
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+
+            //add the parameter for the staffID to search for
+            DB.AddParameter("@StaffID", StaffID);
+
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_FilterByStaffID");
+
+            //if one record is found
+            if(DB.Count == 1) 
+            {
+            sStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+            fName = Convert.ToString(DB.DataTable.Rows[0]["FullName"]);
+            DOB = Convert.ToDateTime(DB.DataTable.Rows[0]["DateOfBirth"]);
+            LoggedIO = Convert.ToBoolean(DB.DataTable.Rows[0]["LoggedInOut"]);
+            address = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+            contactNo = Convert.ToString(DB.DataTable.Rows[0]["ContactNo"]);
+
+            }
+
+            //if no record was found
+            else 
+            {
+                return false;
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+           
         }
     }
 

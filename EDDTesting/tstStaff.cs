@@ -38,7 +38,7 @@ namespace EDDTesting
         {
             clsStaff Staff = new clsStaff();
 
-            string TestData = "John Smith";
+            string TestData = "Joe Bloggs";
 
             Staff.FullName = TestData;
 
@@ -75,7 +75,7 @@ namespace EDDTesting
         {
             clsStaff Staff = new clsStaff();
 
-            string TestData = "1 Regent Road, Leicester, LE4 1EJ";
+            string TestData = "6 Overton Road, Leicester, LE5 2WH";
 
             Staff.Address = TestData;
 
@@ -87,7 +87,7 @@ namespace EDDTesting
         {
             clsStaff Staff = new clsStaff();
 
-            string TestData = "+44 78235017391";
+            string TestData = "4407";
 
             Staff.ContactNo = TestData;
 
@@ -102,7 +102,7 @@ namespace EDDTesting
 
             Boolean found = false;
 
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
 
             found = Staff.Find(StaffID);
 
@@ -118,11 +118,11 @@ namespace EDDTesting
 
             Boolean OK = true;
 
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
 
             found = Staff.Find(StaffID);
 
-            if(Staff.StaffID != 321)
+            if(Staff.StaffID != 6)
             {
                 OK = false;
             }
@@ -136,7 +136,7 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
             found = Staff.Find(StaffID);
             if(Staff.FullName != "Joe Bloggs")
             {
@@ -151,9 +151,9 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
             found = Staff.Find(StaffID);
-            if (Staff.DateOfBirth != Convert.ToDateTime("10/01/2020"))
+            if (Staff.DateOfBirth != Convert.ToDateTime("31/07/1996"))
             {
                 OK = false;
             }
@@ -167,7 +167,7 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
             found = Staff.Find(StaffID);
             if(Staff.LoggedInOut != true)
             {
@@ -183,9 +183,9 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
             found = Staff.Find(StaffID);
-            if(Staff.Address != "1b Gateway walk, Leicester, LE3 0VF")
+            if(Staff.Address != "6 Overton Road, Leicester, LE5 2WH")
             {
                 OK = false;
             }
@@ -199,9 +199,9 @@ namespace EDDTesting
             clsStaff Staff = new clsStaff();
             Boolean found = false;
             Boolean OK = true;
-            Int32 StaffID = 321;
+            Int32 StaffID = 6;
             found = Staff.Find(StaffID);
-            if(Staff.ContactNo != "+44 07836543291") {
+            if(Staff.ContactNo != "4407") {
                 OK = false;
             }
 
