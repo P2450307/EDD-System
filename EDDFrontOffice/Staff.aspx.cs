@@ -13,13 +13,13 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff Staff = new clsStaff();
+        clsStaff sStaff = new clsStaff();
 
         //get data from session object
-        Staff = (clsStaff)Session["Staff"];
+        sStaff = (clsStaff)Session["sStaff"];
 
         //display staff ID for this entry
-        Response.Write(Staff.StaffID);
+        Response.Write(sStaff.FullName);
     }
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -50,5 +50,33 @@ public partial class Staff : System.Web.UI.Page
         Session["Staff"] = Staff;
         Response.Redirect("StaffViewer.aspx");
 
+    }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        clsStaff Staff = new clsStaff();
+
+        //variable to store primary key
+        Int32 StaffID;
+
+        //variable to store result of find operation
+        Boolean found = false;
+
+        //get primary key entered by user
+        StaffID = Convert.ToInt32(txtStaffID.Text);
+
+        //find the record
+        found = Staff.Find(StaffID);
+
+        //if found
+        if(found == true)
+        {
+            //display values in the form
+            txtFullName.Text = Staff.FullName;
+            txtDateOfBirth.Text = Staff.DateOfBirth.ToString();
+            txtAddress.Text = Staff.Address;
+            txtContactNo.Text = Staff.ContactNo;
+            
+        }
     }
 }
