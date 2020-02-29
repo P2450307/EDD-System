@@ -9,11 +9,14 @@
 <body>
     <form id="form1" runat="server" >
         <div>
-            Staff ID
-            <asp:TextBox ID="txtStaffID" runat="server" ></asp:TextBox>
+            Staff ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:TextBox ID="txtStaffID" runat="server"></asp:TextBox>
         </div>
         <p>
-            Full Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" OnClick="btnFind_Click" Text="Find" />
+        </p>
+        <p>
+            Full Name&nbsp;&nbsp;&nbsp; &nbsp;
             <asp:TextBox ID="txtFullName" runat="server"></asp:TextBox>
         </p>
         <p>
@@ -31,7 +34,10 @@
             Contact No&nbsp;&nbsp;&nbsp;
             <asp:TextBox ID="txtContactNo" runat="server"></asp:TextBox>
 &nbsp;</p>
-        <p>&nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
         </p>

@@ -1,4 +1,5 @@
-﻿using EDDClasess;
+﻿
+using EDDClasess;
 using System;
 
 namespace EDDClasses
@@ -88,7 +89,7 @@ namespace EDDClasses
             }
         }
 
-        public bool Find(int StaffID)
+        public bool Find(Int32 StaffID)
         {
             //create an instance of the data connection
             clsDataConnection DB = new clsDataConnection();
@@ -108,6 +109,8 @@ namespace EDDClasses
             LoggedIO = Convert.ToBoolean(DB.DataTable.Rows[0]["LoggedInOut"]);
             address = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
             contactNo = Convert.ToString(DB.DataTable.Rows[0]["ContactNo"]);
+
+                return true;
 
             }
 
