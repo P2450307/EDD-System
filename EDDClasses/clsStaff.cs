@@ -1,5 +1,5 @@
 ﻿
-using EDDClasess;
+using EDDClasses;
 using System;
 
 namespace EDDClasses
