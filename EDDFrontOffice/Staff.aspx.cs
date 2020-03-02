@@ -13,13 +13,13 @@ public partial class Staff : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff sStaff = new clsStaff();
+       // clsStaff Staff = new clsStaff();
 
         //get data from session object
-        sStaff = (clsStaff)Session["sStaff"];
+       // Staff = (clsStaff)Session["Staff"];
 
         //display staff ID for this entry
-        Response.Write(sStaff.FullName);
+       // Response.Write(Staff.FullName);
     }
 
     protected void TextBox1_TextChanged(object sender, EventArgs e)

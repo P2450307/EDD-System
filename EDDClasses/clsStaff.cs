@@ -118,17 +118,12 @@ namespace EDDClasses
             else 
             {
                 return false;
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-           
+            }        
+        }
+
+        public string Valid(string fullName, string dateOfBirth, string address, string contactNo)
+        {
+            return "";
         }
     }
 

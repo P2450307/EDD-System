@@ -3,11 +3,20 @@ using EDDClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
+
 namespace EDDTesting
 {
     [TestClass]
     public class TstStaff
     {
+
+        //good test data
+        string FullName = "Joe Bloggs";
+        string DateOfBirth = DateTime.Now.Date.ToString();
+        string Address = "1 regent road, Leicester, LE2 1UG ";
+        string ContactNo = "44078";
+
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -207,5 +216,21 @@ namespace EDDTesting
 
             Assert.IsTrue(OK);
         }
+
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            clsStaff Staff = new clsStaff();
+            //string variable to store error message
+            string Error = "";
+            //invoke the method
+            Error = Staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            //test to see that result is correct
+            Assert.AreEqual(Error, "");
+        }
+
+
+
+        
     }
 }
