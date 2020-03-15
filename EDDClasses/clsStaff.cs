@@ -123,8 +123,33 @@ namespace EDDClasses
 
         public string Valid(string fullName, string dateOfBirth, string address, string contactNo)
         {
-            return "";
+            //create string variable to store error
+            String error = "";
+
+            //create temporary date variable to store values
+            DateTime DateTemp;
+
+            if(fullName.Length == 0)
+            {
+                //record the error
+                error = error + "full name may not be left blank";
+            }
+
+            if(fullName.Length > 50)
+            {
+                error = error + "full name must be less than 50";
+            }
+
+            DateTemp = Convert.ToDateTime(dateOfBirth);
+            if(DateTemp < DateTime.Now.Date)
+            {
+                error = error + "this date is too old";
+            }
+            //return any error messages
+            return error;
         }
+
+
     }
 
     
