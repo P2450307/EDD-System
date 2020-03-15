@@ -229,6 +229,109 @@ namespace EDDTesting
             Assert.AreEqual(Error, "");
         }
 
+        [TestMethod]
+        public void fNameMinLessOne()
+        {
+            clsStaff Staff = new clsStaff();
+            //string variable to store any error message
+            String error = "";
+            //create test data to pass to method
+            string FullName = ""; //should trigger the error
+            //invoke method
+            error = Staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            //test to see result is correct
+            Assert.AreNotEqual(error, "");
+               
+        }
+
+        [TestMethod]
+        public void fNameMin()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "a";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameMinPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "ab";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameMaxLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2k";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameMax()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2ke";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameMid()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "1eyrg65erste5823tdow2pdma";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameMaxPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2kl0154g3h2ke1";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void fNameExtremeMax()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string FullName = "";
+            FullName = FullName.PadRight(100, 'a');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DOBExtremeMin()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            DateTime tstDate;
+            tstDate = DateTime.Now.Date;
+            tstDate = tstDate.AddYears(-100);
+            DateOfBirth = tstDate.ToString();
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+
+
+
+
 
 
         
