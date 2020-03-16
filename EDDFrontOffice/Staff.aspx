@@ -37,7 +37,8 @@
         <p>
             &nbsp;</p>
         <p>
-            &nbsp;</p>
+            <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
+        </p>
         <p>
             <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" Text="OK" />
         </p>
