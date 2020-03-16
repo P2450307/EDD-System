@@ -39,16 +39,31 @@ public partial class Staff : System.Web.UI.Page
 
         clsStaff Staff = new clsStaff();
 
-        //capture all information below
-        Staff.StaffID = Convert.ToInt32(txtStaffID.Text);
-        Staff.FullName = txtFullName.Text;
-        Staff.DateOfBirth = Convert.ToDateTime(txtDateOfBirth.Text);
-        Staff.LoggedInOut = Convert.ToBoolean(RadioButton1);
-        Staff.Address = txtAddress.Text;
-        Staff.ContactNo = txtContactNo.Text;
-        
-        Session["Staff"] = Staff;
-        Response.Redirect("StaffViewer.aspx");
+        string StaffID = txtStaffID.Text;
+        string FullName = txtFullName.Text;
+        string DateOfBirth = txtDateOfBirth.Text;
+        string Address = txtAddress.Text;
+        string ContactNo = txtContactNo.Text;
+        string error = "";
+        error = Staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+        if(error == "")
+        {
+            //capture all information below
+            Staff.StaffID = Convert.ToInt32(txtStaffID.Text);
+            Staff.FullName = FullName;
+            Staff.DateOfBirth = Convert.ToDateTime(DateOfBirth);
+            Staff.Address = Address;
+            Staff.ContactNo = ContactNo;
+            //store address in session object
+            Session["Staff"] = Staff;
+            //redirect to viewer page
+            Response.Write("StaffViewer.aspx");
+        }
+
+        else
+        {
+            lblError.Text = error;
+        }      
 
     }
 
@@ -78,5 +93,6 @@ public partial class Staff : System.Web.UI.Page
             txtContactNo.Text = Staff.ContactNo;
             
         }
+       
     }
 }

@@ -140,11 +140,42 @@ namespace EDDClasses
                 error = error + "full name must be less than 50";
             }
 
-            DateTemp = Convert.ToDateTime(dateOfBirth);
-            if(DateTemp < DateTime.Now.Date)
+            try
             {
-                error = error + "this date is too old";
+                DateTemp = Convert.ToDateTime(dateOfBirth);
+               
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    error = error + "the date cannot be in the future";
+                }
             }
+
+            catch
+            {
+                error = error + "the date was not valid";
+            }
+
+            if(address.Length == 0)
+            {
+                error = error + "the address may not be left blank";
+            }
+
+            if(address.Length > 50)
+            {
+                error = error + "the address must be less than 50 characters";
+            }
+
+            if(contactNo.Length == 0)
+            {
+                error = error + "contact number may not be left blank";
+            }
+
+            if(contactNo.Length > 21)
+            {
+                error = error + "contact number must be less than 20 characters";
+            }
+            
             //return any error messages
             return error;
         }

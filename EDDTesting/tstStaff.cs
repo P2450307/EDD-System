@@ -328,6 +328,220 @@ namespace EDDTesting
             Assert.AreNotEqual(error, "");
         }
 
+        [TestMethod]
+        public void DOBMinLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            DateTime tstDate;
+            tstDate = DateTime.Now.Date;
+            tstDate = tstDate.AddYears(-100);
+            string DateOfBirth = tstDate.ToString();
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DOBMin()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            DateTime tstDate;
+            tstDate = DateTime.Now.Date;
+            tstDate = tstDate.AddYears(-99);
+            string DateOfBirth = tstDate.ToString();
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DOBMinPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            DateTime tstDate;
+            tstDate = DateTime.Now.Date;
+            tstDate = tstDate.AddYears(-98);
+            string DateOfBirth = tstDate.ToString();
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DOBExtremeMax()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            DateTime tstDate;
+            tstDate = DateTime.Now.Date;
+            tstDate = tstDate.AddDays(50);
+            string DateOfBirth = tstDate.ToString();
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void DOBInvalidData()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            //set dob value to non date value
+            string DateOfBirth = "this is not a date";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMinLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMin()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "a";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMinPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "aa";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMaxLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "";
+            Address = Address.PadRight(49, 'a');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMax()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "";
+            Address = Address.PadRight(50, 'a');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMaxPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "";
+            Address = Address.PadRight(51, 'a');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void AddressMid()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string Address = "";
+            Address = Address.PadRight(25, 'a');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMinLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMin()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "1";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMinPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "12";
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMaxLessOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "";
+            ContactNo = ContactNo.PadRight(10, '1');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMax()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "";
+            ContactNo = ContactNo.PadRight(20, '1');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMaxPlusOne()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "";
+            ContactNo = ContactNo.PadRight(21, '1');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+        [TestMethod]
+        public void ContactNoMid()
+        {
+            clsStaff staff = new clsStaff();
+            String error = "";
+            string ContactNo = "";
+            ContactNo = ContactNo.PadRight(10, '1');
+            error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
+            Assert.AreEqual(error, "");
+        }
+
+
+
+
 
 
 
