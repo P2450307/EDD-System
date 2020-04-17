@@ -325,7 +325,7 @@ namespace EDDTesting
             tstDate = tstDate.AddYears(-100);
             DateOfBirth = tstDate.ToString();
             error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
-            Assert.AreNotEqual(error, "");
+            Assert.AreNotEqual(error, "5");
         }
 
         [TestMethod]
@@ -338,7 +338,7 @@ namespace EDDTesting
             tstDate = tstDate.AddYears(-100);
             string DateOfBirth = tstDate.ToString();
             error = staff.Valid(FullName, DateOfBirth, Address, ContactNo);
-            Assert.AreNotEqual(error, "");
+            Assert.AreNotEqual(error, "5");
         }
 
         [TestMethod]
