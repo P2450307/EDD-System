@@ -43,19 +43,6 @@ namespace EDDTesting
             Assert.AreEqual(allStaff.staffList, tstList);
         }
 
-            [TestMethod]
-            public void CountPropertyOK()
-        {
-            clsStaffCollection allStaff = new clsStaffCollection();
-            //create test data to assign to property
-            Int32 someCount = 0;
-            //assign data to property
-            allStaff.Count = someCount;
-            //test to see values are equal
-            Assert.AreEqual(allStaff.Count, someCount);
-
-        }
-
         [TestMethod]
         public void ThisStaffPropertyOK()
         {
@@ -94,6 +81,8 @@ namespace EDDTesting
             //test to see 2 values are the same
             Assert.AreEqual(allStaff.Count, tstList.Count);
         }
+
+       
             
             
 
