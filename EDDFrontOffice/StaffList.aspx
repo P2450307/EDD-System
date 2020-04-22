@@ -9,7 +9,11 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ListBox ID="lstStaffList" runat="server" Height="356px" Width="477px" OnSelectedIndexChanged="lstStaffList_SelectedIndexChanged"></asp:ListBox>
+            
+            <asp:ListBox ID="lstStaffList" runat="server" DataValueField="Address" Height="320px" Width="359px">
+                <asp:ListItem></asp:ListItem>
+            </asp:ListBox>
+            
         </div>
     </form>
 </body>
