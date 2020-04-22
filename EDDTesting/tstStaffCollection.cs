@@ -29,12 +29,12 @@ namespace EDDTesting
             //add item to list and create that item
             clsStaff testData = new clsStaff();
             //set properties
-            testData.StaffID = 1;
+            testData.StaffID = 6;
             testData.FullName = "Joe Bloggs";
             testData.DateOfBirth = DateTime.Now.Date;
             testData.LoggedInOut = true;
-            testData.Address = "1 Regent Avenue, LE2 1U3, Leicester";
-            testData.ContactNo = "07882365012";
+            testData.Address = "6 Overton Road, Leicester, LE5 2WH";
+            testData.ContactNo = "4407";
             //add item to test list
             tstList.Add(testData);
             //assign data to property
@@ -49,12 +49,12 @@ namespace EDDTesting
             clsStaffCollection allStaff = new clsStaffCollection();
             clsStaff tstStaff = new clsStaff();
             //set properties for test object
-            tstStaff.StaffID = 1;
+            tstStaff.StaffID = 6;
             tstStaff.FullName = "Joe Bloggs";
             tstStaff.DateOfBirth = DateTime.Now.Date;
             tstStaff.LoggedInOut = true;
-            tstStaff.Address = "1 Regent Road, Leicester, LE2 8QU";
-            tstStaff.ContactNo = "07812634829";
+            tstStaff.Address = "6 Overton Road, Leicester, LE5 2WH";
+            tstStaff.ContactNo = "4407";
             allStaff.thisStaff = tstStaff;
             Assert.AreEqual(allStaff.thisStaff, tstStaff);
         }
@@ -68,12 +68,12 @@ namespace EDDTesting
             //add item to list and create that item
             clsStaff testData = new clsStaff();
             //set properties
-            testData.StaffID = 1;
+            testData.StaffID = 6;
             testData.FullName = "Joe Bloggs";
             testData.DateOfBirth = DateTime.Now.Date;
             testData.LoggedInOut = true;
-            testData.Address = "1 Regent Avenue, LE2 1U3, Leicester";
-            testData.ContactNo = "07882365012";
+            testData.Address = "6 Overton Road, Leicester, LE5 2WH";
+            testData.ContactNo = "4407";
             //add item to test list
             tstList.Add(testData);
             //assign data to property
