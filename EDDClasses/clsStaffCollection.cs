@@ -9,6 +9,8 @@ namespace EDDClasses
 
         //private data member for list and count
         List<clsStaff> mStaffList = new List<clsStaff>();
+        //private member for thisStaff
+        clsStaff mThisStaff = new clsStaff();
         public clsStaffCollection()
         {
             //var for index
@@ -66,6 +68,30 @@ namespace EDDClasses
 
             }
         }
-        public clsStaff thisStaff { get; set; }
+        public clsStaff thisStaff { 
+            get
+            {
+                return mThisStaff;
+            } 
+            set
+            {
+                mThisStaff = value;
+            }
+        }
+
+        public int Add()
+        {
+            //adds a new record to database based on values of mThisStaff
+            //set PK of new record
+            clsDataConnection DB = new clsDataConnection();
+            //set parameters for stored proc
+            DB.AddParameter("@FullName", mThisStaff.FullName);
+            DB.AddParameter("@DateOfBirth", mThisStaff.DateOfBirth);
+            DB.AddParameter("@LoggedInOut", mThisStaff.LoggedInOut);
+            DB.AddParameter("@Address", mThisStaff.Address);
+            DB.AddParameter("@ContactNo", mThisStaff.ContactNo);
+            //execite query returning PK
+            return DB.Execute("sproc_tblStaff_Insert");
+        }
     }
 }

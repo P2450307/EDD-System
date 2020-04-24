@@ -54,10 +54,20 @@ public partial class Staff : System.Web.UI.Page
             Staff.DateOfBirth = Convert.ToDateTime(DateOfBirth);
             Staff.Address = Address;
             Staff.ContactNo = ContactNo;
+            Staff.LoggedInOut = LoggedInOut.Checked;
+            //create instance of collection class
+            clsStaffCollection staffList = new clsStaffCollection();
+            //set thisStaff property
+            staffList.thisStaff = Staff;
+            //add the new record
+            staffList.Add();
+            //redirect back to list page
+            Response.Redirect("StaffList.aspx");
             //store address in session object
-            Session["Staff"] = Staff;
+            
+            //Session["Staff"] = Staff;
             //redirect to viewer page
-            Response.Write("StaffViewer.aspx");
+            //Response.Write("StaffViewer.aspx");
         }
 
         else
