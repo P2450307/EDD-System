@@ -82,6 +82,32 @@ namespace EDDTesting
             Assert.AreEqual(allStaff.Count, tstList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            clsStaffCollection allStaff = new clsStaffCollection();
+            clsStaff tstItem = new clsStaff();
+            //var to store PK
+            Int32 PKey = 0;
+            //set properties
+            tstItem.StaffID = 1;
+            tstItem.FullName = "test name";
+            tstItem.DateOfBirth = DateTime.Now.Date;
+            tstItem.LoggedInOut = true;
+            tstItem.Address = "some address";
+            tstItem.ContactNo = "4407";
+            //set thisStaff to test data
+            allStaff.thisStaff = tstItem;
+            //add record
+            PKey = allStaff.Add();
+            //set the primary key of tst data
+            tstItem.StaffID = PKey;
+            //find record
+            allStaff.thisStaff.Find(PKey);
+            //test to see both values are the same
+            Assert.AreEqual(allStaff.thisStaff, tstItem);
+
+        }
        
             
             

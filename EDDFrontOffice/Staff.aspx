@@ -24,7 +24,7 @@
             <asp:TextBox ID="txtDateOfBirth" runat="server"></asp:TextBox>
         </p>
         <p>
-            Logged In<asp:RadioButton ID="RadioButton1" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" />
+            Logged In<asp:RadioButton ID="LoggedInOut" runat="server" OnCheckedChanged="RadioButton1_CheckedChanged" />
 &nbsp;</p>
         <p>
             Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
