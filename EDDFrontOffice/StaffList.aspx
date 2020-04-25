@@ -19,7 +19,17 @@
         <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
         <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" Width="64px" />
         <br />
+        <br />
+        Enter a full name
+        <asp:TextBox ID="txtBoxName" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+        <br />
+        <br />
+        <asp:Button ID="btnApply" runat="server" OnClick="btnApply_Click" Text="Apply" />
+        <asp:Button ID="btnClear" runat="server" OnClick="btnClear_Click" Text="Clear" />
+        <br />
+        <br />
         <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
+        <br />
     </form>
 </body>
 </html>

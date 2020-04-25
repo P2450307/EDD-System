@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDDClasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -82,6 +83,37 @@ public partial class StaffList : System.Web.UI.Page
             //display error
             lblError.Text = "Please select a record to delete";
         }
+
+    }
+
+    protected void btnApply_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection staff = new clsStaffCollection();
+        staff.ReportByFullName(txtBoxName.Text);
+        lstStaffList.DataSource = staff.staffList;
+        //set name of PK
+        lstStaffList.DataValueField = "StaffID";
+        //set name of field to display
+        lstStaffList.DataTextField = "FullName";
+        //bind data to  the list
+        lstStaffList.DataBind();
+    }
+
+    protected void btnClear_Click(object sender, EventArgs e)
+    {
+        clsStaffCollection staff = new clsStaffCollection();
+        staff.ReportByFullName("");
+        //clear any existing filter to tidy up interface
+        txtBoxName.Text = "";
+        lstStaffList.DataSource = staff.staffList;
+        //set name of PK
+        lstStaffList.DataValueField = "StaffID";
+        lstStaffList.DataTextField = "FullName";
+        lstStaffList.DataBind();
+    }
+
+    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    {
 
     }
 }
