@@ -9,27 +9,39 @@ using EDDClasses;
 
 public partial class Staff : System.Web.UI.Page
 {
-    
+    Int32 SID;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        clsStaff Staff = new clsStaff();
 
+        SID = Convert.ToInt32(Session["StaffID"]);
+        if(IsPostBack == false)
+        {
+            //if this is not new
+            if (SID != -1)
+            {
+                //display current record for data
+                DisplayStaff();
+            }
+        }
+        
+        //clsStaff Staff = new clsStaff();
         //get data from session object
-        Staff = (clsStaff)Session["Staff"];
-
+        //Staff = (clsStaff)Session["Staff"];
         //display staff ID for this entry
         //Response.Write(Staff.StaffID);
     }
 
-    protected void TextBox1_TextChanged(object sender, EventArgs e)
+    void DisplayStaff()
     {
-
-    }
-
-    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
-    {
-
+        clsStaffCollection staff = new clsStaffCollection();
+        staff.thisStaff.Find(SID);
+        //display data
+        txtStaffID.Text = staff.thisStaff.StaffID.ToString();
+        txtFullName.Text = staff.thisStaff.FullName;
+        txtDateOfBirth.Text = staff.thisStaff.DateOfBirth.ToString();
+        txtAddress.Text = staff.thisStaff.Address;
+        txtContactNo.Text = staff.thisStaff.ContactNo;
     }
 
     
@@ -49,7 +61,7 @@ public partial class Staff : System.Web.UI.Page
         if(error == "")
         {
             //capture all information below
-            Staff.StaffID = Convert.ToInt32(txtStaffID.Text);
+            Staff.StaffID = Convert.ToInt32(StaffID);
             Staff.FullName = FullName;
             Staff.DateOfBirth = Convert.ToDateTime(DateOfBirth);
             Staff.Address = Address;
@@ -57,14 +69,26 @@ public partial class Staff : System.Web.UI.Page
             Staff.LoggedInOut = LoggedInOut.Checked;
             //create instance of collection class
             clsStaffCollection staffList = new clsStaffCollection();
-            //set thisStaff property
-            staffList.thisStaff = Staff;
-            //add the new record
-            staffList.Add();
+
+            if (SID == -1)
+            {
+                //set thisStaff property
+                staffList.thisStaff = Staff;
+                //add the new record
+                staffList.Add();
+            }
+            else
+            {
+                staffList.thisStaff.Find(SID);
+                //set this staff property
+                staffList.thisStaff = Staff;
+                staffList.Update();
+            }
+
             //redirect back to list page
             Response.Redirect("StaffList.aspx");
-            //store address in session object
             
+            //store address in session object
             //Session["Staff"] = Staff;
             //redirect to viewer page
             //Response.Write("StaffViewer.aspx");
@@ -104,5 +128,10 @@ public partial class Staff : System.Web.UI.Page
             
         }
        
+    }
+
+    protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
+    {
+
     }
 }

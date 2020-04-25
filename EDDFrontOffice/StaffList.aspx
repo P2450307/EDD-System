@@ -16,6 +16,10 @@
             
         </div>
         <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_Click" Text="Add" Width="49px" />
+        <asp:Button ID="btnEdit" runat="server" OnClick="btnEdit_Click" Text="Edit" />
+        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" Width="64px" />
+        <br />
+        <asp:Label ID="lblError" runat="server" Text="lblError"></asp:Label>
     </form>
 </body>
 </html>
