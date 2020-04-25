@@ -23,7 +23,7 @@ public partial class StaffList : System.Web.UI.Page
         //set data source to list of staff in the collection
         lstStaffList.DataSource = staff.staffList;
         //set name of primary key
-        lstStaffList.DataValueField = "Address";
+        lstStaffList.DataValueField = "StaffID";
         //set data field to display
         lstStaffList.DataTextField = "Address";
         //bind data to list
@@ -38,5 +38,50 @@ public partial class StaffList : System.Web.UI.Page
         Session["StaffID"] = -1;
         //redirect to data entry page
         Response.Redirect("Staff.aspx");
+    }
+
+    protected void btnDelete_Click(object sender, EventArgs e)
+    {
+        //var to store primary key
+        Int32 sID;
+        //if record has been selected from list
+        if(lstStaffList.SelectedIndex != -1)
+        {
+            //get PK of record to be deleted
+            sID = Convert.ToInt32(lstStaffList.SelectedValue);
+            //store the data in session object
+            Session["StaffID"] = sID;
+            //redirect to delete page
+            Response.Redirect("DeleteStaff.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display error
+            lblError.Text = "Please select a record to delete";
+        }
+
+
+    }
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        //var to store primary key
+        Int32 sID;
+        //if record has been selected from list
+        if (lstStaffList.SelectedIndex != -1)
+        {
+            //get PK of record to be deleted
+            sID = Convert.ToInt32(lstStaffList.SelectedValue);
+            //store the data in session object
+            Session["StaffID"] = sID;
+            //redirect to delete page
+            Response.Redirect("DeleteStaff.aspx");
+        }
+        else //if no record has been selected
+        {
+            //display error
+            lblError.Text = "Please select a record to delete";
+        }
+
     }
 }
