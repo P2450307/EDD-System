@@ -10,9 +10,9 @@ using System.Data;
 ///it is free for use by anybody so long as you give credit to the original author i.e me
 ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2013
 
-namespace EDDClasess
+namespace EDDClasses
 {
-    public class clsDataConnection
+    public class ClsDataConnection
     {
         //connection object used to connect to the database
         SqlConnection connectionToDB = new SqlConnection();
@@ -27,12 +27,12 @@ namespace EDDClasess
         //string variable used to store the connection string
         private string connectionString;
 
-        public clsDataConnection()
+        public ClsDataConnection()
         {
             GetConString(GetDBName());
         }
 
-        public clsDataConnection(string DBLocation)
+        public ClsDataConnection(string DBLocation)
         {
             GetConString(DBLocation);
         }
