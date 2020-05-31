@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using EDDClasses;
 
 public partial class Customer: System.Web.UI.Page
@@ -15,21 +10,21 @@ public partial class Customer: System.Web.UI.Page
 
     protected void BtnSubmit_Click(object sender, EventArgs e)
     {
-        ClsCustomer stock = new ClsCustomer();
-        string ProductDetails = txtProductDetails.Text;
-        string Price = txtPrice.Text;
-        string DateAcquired = txtDateAcquired.Text;
-        string InStock = txtInStock.Text;
+        clsCustomer customer = new clsCustomer();
+        string userName = txtuserName.Text;
+        string emailAddress = txtemailAddress.Text;
+        string dateOfbirth = txtdateOfBirth.Text;
+        string hasPlaceOrder = txthasPlaceOrder.Text;
         string Error = "";
-        Error = stock.Valid(ProductDetails, DateAcquired);
+        Error = customer.Valid(userName, emailAddress, dateOfbirth);
         if (Error == "")
         {
-            stock.ProductDetails = ProductDetails;
-            stock.Price = Convert.ToDecimal(txtPrice.Text);
-            stock.DateAcquired = Convert.ToDateTime(txtDateAcquired.Text);
-            stock.Result = Convert.ToBoolean(txtInStock.Text);
-            Session["Stock"] = stock;
-            Response.Write("StockViewer.aspx");
+            customer.userName = userName;
+            customer.emailAddress = emailAddress;
+            customer.dateOfbirth = Convert.ToDateTime(txtdateOfBirth.Text);
+            customer.hasPlaceOrder = Convert.ToBoolean(txthasPlaceOrder.Text);
+            Session["Customer"] = customer;
+            Response.Write("CustomerViewer.aspx");
         }
         else
         {
